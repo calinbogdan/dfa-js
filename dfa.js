@@ -28,8 +28,9 @@ DeterministicFiniteAutomata.prototype.accepts = function (word) {
 };
 
 DeterministicFiniteAutomata.prototype.notInAlphabet = function (word) {
+    var alphabet = this.alphabet;
     return word.split('').every(function (element) {
-        this.alphabet.includes(element);
+        alphabet.includes(element);
     });
 };
 
@@ -38,7 +39,7 @@ DeterministicFiniteAutomata.prototype.currentStateNotBlocked = function (current
 };
 
 DeterministicFiniteAutomata.prototype.nextStateFor = function (state, symbol) {
-    return this.transitions[state].find(function (transition) { return transition.symbol === symbol; });
+    return this.transitions[state].find(function (transition) { return transition.symbol === symbol; }).target;
 };
 
 DeterministicFiniteAutomata.prototype.isFinalState = function (state) {

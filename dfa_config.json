@@ -2,8 +2,19 @@
     "alphabet" : ["0", "1"],
     "initialState": "A",
     "states": ["A", "B", "C"],
-    "finalStates": ["A"],
+    "finalStates": ["C"],
     "transitions": {
-        
+        "A": [
+            {
+                "symbol": "0",
+                "target": "B"
+            }
+        ],
+        "B": [
+            {
+                "symbol": "0",
+                "target": "C"
+            }
+        ]
     }
 }
