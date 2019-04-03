@@ -1,0 +1,9 @@
+{
+    "alphabet" : ["0", "1"],
+    "initialState": "A",
+    "states": ["A", "B", "C"],
+    "finalStates": ["A"],
+    "transitions": {
+        
+    }
+}
