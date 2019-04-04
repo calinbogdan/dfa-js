@@ -1,4 +1,4 @@
-var DeterministicFiniteAutomata = require('./dfa');
+var DeterministicFiniteAutomata = require('./automatas/dfa');
 var config = require('./dfa_config.json');
 
 var dfa = new DeterministicFiniteAutomata(
@@ -8,5 +8,5 @@ var dfa = new DeterministicFiniteAutomata(
     config.states, 
     config.transitions);
 
-console.log(dfa.accepts.bind(dfa)("00"));
+console.log(dfa.accepts("00"));
 

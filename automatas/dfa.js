@@ -28,18 +28,21 @@ DeterministicFiniteAutomata.prototype.accepts = function (word) {
 };
 
 DeterministicFiniteAutomata.prototype.notInAlphabet = function (word) {
-    var alphabet = this.alphabet;
-    return word.split('').every(function (element) {
-        alphabet.includes(element);
+    var self = this;
+    return word.split('').some(function (char) {
+        return !self.alphabet.includes(char);
     });
 };
 
 DeterministicFiniteAutomata.prototype.currentStateNotBlocked = function (currentState, symbol) {
-    return this.transitions[currentState].some(function (transition) { return transition.symbol === symbol; });
+    return this.transitions[currentState]
+            .some(function (transition) { return transition.symbol === symbol; });
 };
 
 DeterministicFiniteAutomata.prototype.nextStateFor = function (state, symbol) {
-    return this.transitions[state].find(function (transition) { return transition.symbol === symbol; }).target;
+    return this.transitions[state]
+            .find(function (transition) { return transition.symbol === symbol; })
+            .target;
 };
 
 DeterministicFiniteAutomata.prototype.isFinalState = function (state) {
